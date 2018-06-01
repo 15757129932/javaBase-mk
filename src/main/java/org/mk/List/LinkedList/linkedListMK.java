@@ -77,16 +77,16 @@ public class linkedListMK<E> implements List<E> {
      * @param index
      * @return
      */
-    private Node getNode(int index) {
+    private Node<E> getNode(int index) {
         checkElementIndex(index);
         if ((size >> 1) > index) {//index小于链表一半大小，从链表表头遍历
-            Node node = first;
+            Node<E> node = first;
             for (int i = 0; i < index; i++) {
                 node = node.next;
             }
             return node;
         } else {//index小于链表一半大小，从链表尾部开始遍历
-            Node node = last;
+            Node<E> node = last;
             for (int i = size - 1; i > index; i--) {
                 node = node.pre;
             }
@@ -117,6 +117,15 @@ public class linkedListMK<E> implements List<E> {
 
     }
 
+    private void unlink(Node<E> node) {
+
+        final E item = node.item;
+        final Node<E> pre = node.pre;
+        final Node<E> next = node.next;
+
+
+
+    }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**以下是必须实现的接口**/
 
@@ -150,9 +159,27 @@ public class linkedListMK<E> implements List<E> {
 
     @Override
     public boolean contains(Object o) {
+        if (o == null) {
+            Node<E> nextNode = first;
+            for (int i = 0; i < size; i++) {
+                if (nextNode.item == o) {
+                    return true;
+                }
+                nextNode = nextNode.next;
+            }
+            return false;
+        } else {
 
+            Node<E> nextNode = first;
+            for (int i = 0; i < size; i++) {
+                if (o.equals(nextNode.item)) {
+                    return true;
+                }
+                nextNode = nextNode.next;
+            }
+            return false;
+        }
 
-        return false;
     }
 
     @Override
@@ -162,7 +189,15 @@ public class linkedListMK<E> implements List<E> {
 
     @Override
     public Object[] toArray() {
-        return new Object[0];
+
+        Object[] arr = new Object[size];
+        int i = 0;
+
+        for (Node<E> x = first; x != null; x = x.next) {
+            arr[i++] = x.item;
+        }
+        return arr;
+
     }
 
     @Override
@@ -172,7 +207,9 @@ public class linkedListMK<E> implements List<E> {
 
     @Override
     public boolean remove(Object o) {
-        return false;
+        int index = indexOf(o);
+
+
     }
 
     @Override
@@ -230,12 +267,36 @@ public class linkedListMK<E> implements List<E> {
 
     @Override
     public E remove(int index) {
+
+        checkElementIndex(index);
+        Node<E> x = getNode(index);
+
         return null;
+
+
     }
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        if (o == null) {
+            int i = 0;
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (x.item == o) {
+                    return i;
+                }
+                i++;
+            }
+        } else {
+            int i = 0;
+            for (Node<E> x = first; x != null; x = x.next) {
+                if (o.equals(x.item)) {
+                    return i;
+                }
+                i++;
+            }
+        }
+
+        return -1;
     }
 
     @Override
