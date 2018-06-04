@@ -8,9 +8,12 @@ public class linkedListMK<E> implements List<E> {
     }
 
 
-    public Node first;
-    public Node last;
-    public int size;//链表的元素大小
+    private Node first;
+    private Node last;
+    private transient int size;//链表的元素大小
+
+    protected transient int modCount = 0;//Fast-Failed 实现的方式之一
+
 
     public linkedListMK() {
 
@@ -50,6 +53,7 @@ public class linkedListMK<E> implements List<E> {
         }
 
         size++;
+        modCount++;
     }
 
     /**
@@ -69,6 +73,7 @@ public class linkedListMK<E> implements List<E> {
             preNode.next = newNode;
         }
         size++;
+        modCount++;
     }
 
     /**
@@ -117,16 +122,96 @@ public class linkedListMK<E> implements List<E> {
 
     }
 
-    private void unlink(Node<E> node) {
+    /**
+     * 删除指定的节点
+     *
+     * @param node
+     */
+    private E unlink(Node<E> node) {
 
         final E item = node.item;
         final Node<E> pre = node.pre;
         final Node<E> next = node.next;
 
+        if (pre == null) {
+            first = next;
+        } else {
+            pre.next = next;
+            node.pre = null;
+        }
+
+        if (next == null) {
+            last = pre;
+        } else {
+            next.pre = pre;
+            node.next = null;
+        }
+
+        node.item = null;
+        node = null;
+        size--;
+        modCount++;
+        return item;
+    }
+
+
+    /**
+     * 实现内部迭代器
+     */
+    public class LinkedListMKIterator<E> implements Iterator<E> {
+
+
+        int expectedCount;
+
+        private Node<E> x;
+
+        LinkedListMKIterator() {
+            expectedCount = modCount;
+            x = first;
+        }
+
+
+        @Override
+        public boolean hasNext() {
+
+            checkFastFailed();
+
+            return x == null ? false : true;
+
+        }
+
+
+        @Override
+        public E next() {
+
+            checkFastFailed();
+            if (!hasNext()) throw new ConcurrentModificationException();
+
+            Node<E> node = x;
+            x = x.next;
+
+            return node.item;
+        }
+
+        @Override
+        public void remove() {
+
+        }
+
+
+        /**
+         * fast-failed realized
+         */
+        public void checkFastFailed() {
+            if (modCount != expectedCount)
+                throw new ConcurrentModificationException();
+        }
 
 
     }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /**以下是必须实现的接口**/
 
 
@@ -184,7 +269,7 @@ public class linkedListMK<E> implements List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new LinkedListMKIterator<E>();
     }
 
     @Override
@@ -207,9 +292,25 @@ public class linkedListMK<E> implements List<E> {
 
     @Override
     public boolean remove(Object o) {
-        int index = indexOf(o);
+        if (o == null) {
+            for (Node<E> x = first; x.next != null; x = x.next) {
+                if (x.item == o) {
+                    unlink(x);
+                    return true;
+                }
+            }
+        } else {
+            for (Node<E> x = first; x.next != null; x = x.next) {
+                if (o.equals(x.item)) {
+                    unlink(x);
+                    return true;
+                }
+            }
+
+        }
 
 
+        return false;
     }
 
     @Override
@@ -271,8 +372,7 @@ public class linkedListMK<E> implements List<E> {
         checkElementIndex(index);
         Node<E> x = getNode(index);
 
-        return null;
-
+        return unlink(x);
 
     }
 
