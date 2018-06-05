@@ -1,8 +1,8 @@
-package org.mk.List.LinkedList;
+package org.mk.dev.List.LinkedList;
 
 import java.util.*;
 
-public class linkedListMK<E> implements List<E> {
+public class linkedList<E> implements List<E> {
     public static void main(String[] args) {
         LinkedList l = new LinkedList();
     }
@@ -15,7 +15,7 @@ public class linkedListMK<E> implements List<E> {
     protected transient int modCount = 0;//Fast-Failed 实现的方式之一
 
 
-    public linkedListMK() {
+    public linkedList() {
 
     }
 
