@@ -2,9 +2,9 @@ package org.mk.dev.List.LinkedList;
 
 import java.util.*;
 
-public class linkedList<E> implements List<E> {
+public class LinkedList<E> implements List<E> {
     public static void main(String[] args) {
-        LinkedList l = new LinkedList();
+        java.util.LinkedList l = new java.util.LinkedList();
     }
 
 
@@ -15,7 +15,7 @@ public class linkedList<E> implements List<E> {
     protected transient int modCount = 0;//Fast-Failed 实现的方式之一
 
 
-    public linkedList() {
+    public LinkedList() {
 
     }
 
@@ -152,6 +152,20 @@ public class linkedList<E> implements List<E> {
         size--;
         modCount++;
         return item;
+    }
+
+
+    /**
+     * 检查sublist是否合法
+     */
+    public void checkSubElementIndex(int fromIndex, int toIndex) {
+
+        checkElementIndex(fromIndex);
+        checkElementIndex(toIndex);
+
+        if (toIndex > fromIndex) throw new IndexOutOfBoundsException("fromIndex:" + fromIndex + "  toIndex:" + toIndex);
+
+
     }
 
 
@@ -318,14 +332,60 @@ public class linkedList<E> implements List<E> {
         return false;
     }
 
+
     @Override
     public boolean addAll(Collection<? extends E> c) {
+
+        this.addAll(size, c);
+
         return false;
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
-        return false;
+
+        Object[] objArr = c.toArray();
+        int arrLength = objArr.length;
+
+        if (arrLength == 0)
+            return false;
+
+        checkPositionIndex(index);
+
+        Node<E> preNode, nextNode;
+
+
+        if (index == size) {//加在最后面
+            preNode = last;
+            nextNode = null;
+        } else {
+            nextNode = getNode(index);
+            preNode = nextNode.pre;
+        }
+
+
+        for (Object obj : objArr) {
+            Node<E> newNode = new Node<E>(preNode, (E) obj, null);
+
+            if (preNode == null) {
+                first = newNode;
+            } else {
+                preNode.next = newNode;
+            }
+            preNode = newNode;
+        }
+
+
+        if (nextNode == null) {
+            last = preNode;
+        } else {
+            nextNode.pre = preNode;
+            preNode.next = nextNode;
+        }
+        size += arrLength;
+
+        modCount++;
+        return true;
     }
 
     @Override
@@ -340,6 +400,18 @@ public class linkedList<E> implements List<E> {
 
     @Override
     public void clear() {
+
+        for (Node<E> x = first; x != null; ) {
+
+            Node<E> tmp = x.next;
+
+            x.item = null;
+            x.pre = null;
+            x.next = null;
+
+            x = tmp;
+
+        }
 
     }
 
@@ -415,7 +487,22 @@ public class linkedList<E> implements List<E> {
     }
 
     @Override
+    /**
+     * 自己实现的sublist 获取到的sublist为全新的list，和原先父级list没有关联
+     */
     public List<E> subList(int fromIndex, int toIndex) {
+
+        checkSubElementIndex(fromIndex, toIndex);
+
+        if (fromIndex > size - toIndex) {//从链表尾部开始遍历
+
+
+        } else {//从链表头部开始遍历
+
+
+        }
+
+
         return null;
     }
 }

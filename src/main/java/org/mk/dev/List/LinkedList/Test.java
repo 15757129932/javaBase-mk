@@ -1,31 +1,34 @@
 package org.mk.dev.List.LinkedList;
 
-import javax.swing.text.html.HTMLDocument;
 import java.util.*;
 
 public class Test {
 
-    public static List list = new linkedList();
+    public static List list = new LinkedList();
 
 
     public static void main(String[] args) {
 
-        Map map = new HashMap();
 
-        Person p =  new Person(25,"doublecong");
-        Person p2 =  new Person(25,"doublecong");
+        List arrList = new ArrayList();
+        List l = new ArrayList();
+        l.add("i");
+        l.add("love");
 
-        map.put(p,p);
-        map.put(p2,p2);
 
-//        for (Person pa : map.keySet()) {
-//
-//            //Integer value = map.get(pa);
-//
-//            System.out.println("Key = " + key + ", Value = " + value);
-//
-//        }
-//
+        LinkedList linkedList = new LinkedList();
+        linkedList.add("milky");
+        linkedList.add(",");
+        linkedList.add("you");
+        linkedList.add("!");
+
+
+        linkedList.addAll(2, l);
+
+        Iterator iterator = linkedList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
 
 
     }
