@@ -1,11 +1,14 @@
-package org.mk.dev.List.LinkedList;
+package org.mk.dev.tools;
 
 import java.io.UnsupportedEncodingException;
-import java.util.*;
 
-public class Test {
+public class SecretCodeUtil {
 
-    public static List list = new LinkedList();
+    public static void main(String[] args) {
+        String str = encode("woaini", "utsf8");
+        System.out.println(str);
+        System.out.println(decode(str,""));
+    }
 
 
     private static char[] base64EncodeChars = new char[]{
@@ -30,7 +33,7 @@ public class Test {
             41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1};
 
 
-    public static String encode(byte[] data) {
+    private static String encode(byte[] data) {
         StringBuffer sb = new StringBuffer();
         int len = data.length;
         int i = 0;
@@ -61,7 +64,7 @@ public class Test {
     }
 
 
-    public static byte[] decode(String str) throws UnsupportedEncodingException {
+    private static byte[] decode(String str) throws UnsupportedEncodingException {
         StringBuffer sb = new StringBuffer();
         byte[] data = str.getBytes("US-ASCII");
         int len = data.length;
@@ -100,60 +103,46 @@ public class Test {
         return sb.toString().getBytes("iso8859-1");
     }
 
-    public static void main(String[] args) throws UnsupportedEncodingException {
-        String s = "abcd";
-        System.out.println("加密前：" + s);
-        String x = encode(s.getBytes());
-        System.out.println("加密后：" + x);
-        String x1 = new String(decode(x));
-        System.out.println("解密后：" + x1);
-    }
 
-
-}
-
-
-class Person {
-    private int age;
-    private String name;
-
-    Person() {
-    }
-
-    Person(int age, String name) {
-        this.age = age;
-        this.name = name;
-    }
-
-//    @Override
-//    public boolean equals(Object obj) {
-//
-//        if (this == obj) return true;
-//
-//        if (obj == null) return false;
-//
-//        if (obj.getClass() != this.getClass()) return false;
-//
-//        Person person = (Person) obj;
-//
-//        if (person.age == this.age) {
-//
-//            if (name == null) {
-//                return (person.name == null);
-//            } else {
-//                return this.name.equals(person.name);
-//            }
-//
-//        } else {
-//            return false;
+    public static String encode(String secretCode, String charset) {
+        codeCheck(secretCode, charset);//check
+        if (secretCode.equals("")) return "";
+        byte byteArr[] = secretCode.getBytes();
+        return encode(byteArr);
+//        try {
+//            byte byteArr[] = secretCode.getBytes();
+//            return encode(byteArr);
+//        } catch (UnsupportedEncodingException ex) {
+//            throw new SecretException(ex.getMessage() + "\n" + "secretCode:" + secretCode + " error \n" + "charset:" + charset);
 //        }
-//
-//
-//    }
-
-    @Override
-    public int hashCode() {
-        return super.hashCode();
     }
-}
 
+
+    public static String decode(String secretCode, String charset) {
+
+        try {
+            return new String(decode(secretCode));
+        } catch (UnsupportedEncodingException ex) {
+            throw new SecretException(ex.getMessage() + "\n" + "secretCode:" + secretCode + " error \n" + "charset:" + charset);
+        }
+
+    }
+
+
+    private static void codeCheck(String secretCode, String charset) {
+
+        if (secretCode == null)
+            throw new SecretException("secretCode:" + secretCode + " error \n" + "charset:" + charset);
+    }
+
+
+    private static class SecretException extends RuntimeException {
+
+        public SecretException(String msg) {
+            System.out.println(msg);
+        }
+
+    }
+
+
+}

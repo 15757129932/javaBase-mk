@@ -6,6 +6,8 @@ package org.mk.dev.tools;
 public class NumUtil {
 
 
+
+
     public static byte[] long2Byte(long num) {
 
         byte[] bytes = new byte[8];
@@ -16,4 +18,8 @@ public class NumUtil {
         return bytes;
 
     }
+
+
+
+
 }
