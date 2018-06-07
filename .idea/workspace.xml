@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="45b03c72-b644-473a-ad81-d6a2d1e741ad" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/linkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/mk/List/LinkedList/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/mk/List/LinkedList/ThreadAdd.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/mk/List/LinkedList/ThreadIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/mk/List/LinkedList/linkedListMK$LinkedListMKIterator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/mk/List/LinkedList/linkedListMK$Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/mk/List/LinkedList/linkedListMK.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,14 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/LinkedList.java">
+      <file leaf-file-name="AbstractSequentialList.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/AbstractSequentialList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="493" column="8" selection-end-line="508" />
-              <folding>
-                <element signature="class#LinkedListMKIterator#0;class#LinkedList#0" />
-              </folding>
+            <state relative-caret-position="545">
+              <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -38,26 +27,17 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="120">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
-        <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/LinkedList.java">
+      <file leaf-file-name="NumUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/mk/dev/tools/NumUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9064">
-              <caret line="445" selection-start-line="445" selection-end-line="445" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractSequentialList.java" pinned="false" current-in-tab="false">
-        <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/AbstractSequentialList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
+            <state relative-caret-position="66">
+              <caret line="3" column="8" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -98,6 +78,7 @@
         <option value="$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/linkedList.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/LinkedList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/mk/dev/tools/NumUtil.java" />
       </list>
     </option>
   </component>
@@ -116,10 +97,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="194" />
-    <option name="y" value="37" />
+    <option name="x" value="313" />
+    <option name="y" value="123" />
     <option name="width" value="1887" />
-    <option name="height" value="972" />
+    <option name="height" value="841" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -127,7 +108,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,7 +158,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mk" type="462c0819:PsiDirectoryNode" />
               <item name="dev" type="462c0819:PsiDirectoryNode" />
-              <item name="LinkedList" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javaBase" type="b2602c69:ProjectViewProjectNode" />
@@ -190,6 +170,7 @@
       </pane>
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,15 +318,16 @@
       <workItem from="1528271543068" duration="1775000" />
       <workItem from="1528273946904" duration="1852000" />
       <workItem from="1528276104446" duration="54000" />
-      <workItem from="1528279656870" duration="401000" />
+      <workItem from="1528279656870" duration="438000" />
+      <workItem from="1528342742187" duration="91000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55404000" />
+    <option name="totallyTimeSpent" value="55532000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="194" y="37" width="1887" height="972" extended-state="0" />
+    <frame x="313" y="123" width="1887" height="841" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -359,14 +341,14 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.20501636" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.07442977" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.08974359" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.42023346" visible="true" weight="0.20799124" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.41627544" visible="true" weight="0.21018063" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Learn" order="6" />
-      <window_info id="Structure" order="1" sideWeight="0.5797665" side_tool="true" visible="true" weight="0.20799124" />
+      <window_info id="Structure" order="1" sideWeight="0.58372456" side_tool="true" visible="true" weight="0.21018063" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -393,13 +375,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19756">
-          <caret line="898" column="14" selection-start-line="898" selection-start-column="14" selection-end-line="898" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18722">
@@ -720,34 +695,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="484" column="38" selection-start-line="484" selection-start-column="38" selection-end-line="484" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="445" selection-start-line="445" selection-end-line="445" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/AbstractSequentialList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
+        <state relative-caret-position="545">
           <caret line="68" column="63" selection-start-line="68" selection-start-column="63" selection-end-line="68" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="120">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/software/java/jdk1.8.0_162/src.zip!/java/util/LinkedList.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/mk/dev/tools/NumUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9064">
-          <caret line="445" selection-start-line="445" selection-end-line="445" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/mk/dev/List/LinkedList/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="493" column="8" selection-end-line="508" />
-          <folding>
-            <element signature="class#LinkedListMKIterator#0;class#LinkedList#0" />
-          </folding>
+        <state relative-caret-position="66">
+          <caret line="3" column="8" selection-end-line="19" />
         </state>
       </provider>
     </entry>
