@@ -2,7 +2,7 @@ package org.mk.dev.algorithm.sort;
 
 
 /**
- * 冒泡排序   时间复杂度O(n)
+ * 冒泡排序   最优的时间复杂度:O(n)  最差时间复杂度:O( n*(n-1)/2 )
  */
 public class BubbleSort {
 
@@ -11,7 +11,9 @@ public class BubbleSort {
 
 
         int origin[] = {45, 78, 2, 65, 4, 9, 7, 25, 3658, 1, 3, 59, 648, 25, 34, 65, 1, 89, 7, 8};
-        sort(origin, -1);
+
+        sort(origin, 1);
+
         for (int i = 0; i < origin.length; i++) {
             System.out.println(origin[i] + "\n");
         }
