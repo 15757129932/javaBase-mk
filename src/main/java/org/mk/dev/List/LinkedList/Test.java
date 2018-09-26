@@ -2,6 +2,7 @@ package org.mk.dev.List.LinkedList;
 
 import java.io.UnsupportedEncodingException;
 import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Test {
 
@@ -101,6 +102,17 @@ public class Test {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
+
+        Queue q = new ConcurrentLinkedQueue();
+
+
+        q.offer(1);
+        System.out.println(q.poll());
+
+
+
+
+
         String s = "abcdefg";
 //        System.out.println("加密前：" + s);
 //        String x = encode(s.getBytes());
@@ -109,7 +121,7 @@ public class Test {
 //        System.out.println("解密后：" + x1);
 
 
-        System.out.println(s.substring(s.length()-2));
+       // System.out.println(s.substring(s.length()-2));
     }
 
 
@@ -128,31 +140,33 @@ class Person {
         this.name = name;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//
-//        if (this == obj) return true;
-//
-//        if (obj == null) return false;
-//
-//        if (obj.getClass() != this.getClass()) return false;
-//
-//        Person person = (Person) obj;
-//
-//        if (person.age == this.age) {
-//
-//            if (name == null) {
-//                return (person.name == null);
-//            } else {
-//                return this.name.equals(person.name);
-//            }
-//
-//        } else {
-//            return false;
-//        }
-//
-//
-//    }
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj == null) return false;
+
+
+        if (this == obj) return true;
+
+
+        if (obj.getClass() != this.getClass()) return false;
+
+        Person person = (Person) obj;
+
+        if (person.age == this.age) {
+
+            if (name == null) {
+                return (person.name == null);
+            } else {
+                return this.name.equals(person.name);
+            }
+
+        } else {
+            return false;
+        }
+
+
+    }
 
     @Override
     public int hashCode() {
